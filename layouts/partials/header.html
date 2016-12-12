@@ -30,7 +30,14 @@
           </div>
         </nav>
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <script language="JavaScript">
+            function doSearch(form) {
+              url='http://google.com/?q='+encodeURIComponent(form.elements[0].value+' '+form.elements[2].value)
+              window.location.href=url
+              return false
+            }
+          </script>
+          <form action="#" onSubmit="return doSearch(this);" method="get" accept-charset="UTF-8" class="search-form">
               <input type="search" name="q" class="search-form-input" placeholder="{{with .Site.Data.l10n.search.placeholder}}{{.}}{{end}}">
               <button type="submit" class="search-form-submit">
               </button>
